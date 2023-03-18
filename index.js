@@ -1,43 +1,38 @@
- window.onload = iniciar;
+// Formulario y Elementos del Resultado
+const formulario = document.getElementById('formulario');
+const resultado = document.getElementById('resultado');
+const mensaje = document.getElementById('mensaje');
+const imc = document.getElementById('imc');
+const sugerencias = document.getElementById('sugerencias');
 
- function iniciar() {
-     let btnCalcular = document.getElementById("btnCalcular");
-     btnCalcular.addEventListener ("click", clickBtnCalcular);
- }
+// Envío de Formulario
+formulario.addEventListener('submit', function(e) {
+  e.preventDefault();
 
- function clickBtnCalcular() {
-     let txtPeso = document.getElementById ("txtPeso");
-     let peso = txtPeso.value;
+  // Peso y Altura (Resultados)
+  const peso = parseFloat(document.getElementById('peso').value);
+  const altura = parseFloat(document.getElementById('altura').value) / 100;
 
-    let txtAltura = document.getElementById ("txtAltura");
-    let altura = txtAltura.value;
+  // Calcular IMC
+  const calculoIMC = peso / (altura * altura);
+  const indiceIMC = calculoIMC.toFixed(2);
 
-    // const peso = prompt ("Ingrese su Peso");
-    // const altura = prompt ("Ingrese su Altura");
+  // Mostrar el Resultado y el Mensaje del IMC
+  resultado.style.display = 'block';
+  imc.innerHTML = `Tu IMC es: ${indiceIMC}`;
 
-    const imc = peso / (altura * altura);
-    alert("Su IMC es: " + Math.round(imc));
+  if (indiceIMC < 18.5) {
+    mensaje.innerHTML = 'Tienes bajo peso';
+    sugerencias.innerHTML = 'Es importante que aumentes tu ingesta de alimentos ricos en nutrientes y que realices ejercicio de forma regular para mejorar tu masa muscular y ósea.';
+  } else if (indiceIMC >= 18.5 && indiceIMC <= 24.9) {
+    mensaje.innerHTML = 'Tienes un peso saludable';
+    sugerencias.innerHTML = 'Mantén una dieta equilibrada y realiza ejercicio físico de forma regular para mantener tu peso en un rango saludable.';
+  } else if (indiceIMC >= 25 && indiceIMC <= 29.9) {
+    mensaje.innerHTML = 'Tienes sobrepeso';
+    sugerencias.innerHTML = 'Es importante que realices ejercicio físico de forma regular y que disminuyas tu ingesta calórica para bajar de peso y disminuir el riesgo de enfermedades crónicas.';
+  } else {
+    mensaje.innerHTML = 'Tienes obesidad';
+    sugerencias.innerHTML = 'Es importante que consultes a un especialista en nutrición y que aumentes tu actividad física para bajar de peso y disminuir el riesgo de enfermedades crónicas.';
+  }
+});
 
-    if (imc < 18.5) {
-        alert("Usted Tiene Poco Peso");
-
-    }     else if (imc >= 18.5 && imc < 25) {
-        alert("Usted Se Encuentra en Parámetros Saludables");
-
-    }     else if (imc >= 25 && imc < 30) {
-        alert("Usted Tiene Sobrepeso");
-
-    }     else if (imc >= 30 && imc < 35) {
-        alert("Usted Tiene Obesidad I");
-
-    }     else if (imc >= 35 && imc < 40) {
-        alert("Usted Tiene Obesidad II");
-
-    }     else if (imc >= 40) {
-        alert("Usted Tiene Obesidad III");
-
-    } else {
-        alert("Error en Valores Ingresados (Intente Ingresar la Altura en este formato: 1.70");
-    } 
-
- }

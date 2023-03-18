@@ -1,21 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Calculadora de IMC</title>
 </head>
 <body>
-    <h1>Calculadora de IMC</h1>
+  <h1>Calculadora de IMC</h1>
 
-    <form action="">
-        <label>Peso:</label> <input type="text" id="txtPeso">
-        <label>Altura (Ej: 1.70):</label> <input type="text" id="txtAltura">
-        <button id="btnCalcular" type="button">Calcular</button>
-    </form>
-    <br>
+  <form id="formulario">
+    <label for="peso">Peso (kg)</label>
+    <input type="number" id="peso" required>
 
-    <script src="index.js"></script>
+    <label for="altura">Altura (cm)</label>
+    <input type="number" id="altura" required>
+
+    <button type="submit">Calcular IMC</button>
+  </form>
+
+  <div class="resultado" id="resultado">
+    <h2>Resultado</h2>
+    <p id="mensaje"></p>
+    <p id="imc"></p>
+  </div>
+
+  <div class="sugerencias">
+    <h2>Sugerencias para Mejorar tu Calidad de Vida</h2>
+    <p id="sugerencias"></p>
+  </div>
+
+  <script src="/index.js"></script>
 </body>
 </html>
