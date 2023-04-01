@@ -1,23 +1,32 @@
-// Formulario y Elementos del Resultado
+// Formulario y Resultado
 const formulario = document.getElementById('formulario');
 const resultado = document.getElementById('resultado');
 const mensaje = document.getElementById('mensaje');
 const imc = document.getElementById('imc');
 const sugerencias = document.getElementById('sugerencias');
 
+// Carga de Resultado Previo desde el Almacenamiento Local
+const resultadoPrevio = JSON.parse(localStorage.getItem('resultadoIMC'));
+if (resultadoPrevio) {
+  imc.innerHTML = `Tu IMC es: ${resultadoPrevio.indiceIMC}`;
+  mensaje.innerHTML = resultadoPrevio.mensaje;
+  sugerencias.innerHTML = resultadoPrevio.sugerencias;
+  resultado.style.display = 'block';
+}
+
 // Envío de Formulario
 formulario.addEventListener('submit', function(e) {
   e.preventDefault();
 
-  // Peso y Altura (Resultados)
+// Peso y Altura (Resultados)
   const peso = parseFloat(document.getElementById('peso').value);
   const altura = parseFloat(document.getElementById('altura').value) / 100;
 
-  // Calcular IMC
+// Calcular IMC
   const calculoIMC = peso / (altura * altura);
   const indiceIMC = calculoIMC.toFixed(2);
 
-  // Mostrar el Resultado y el Mensaje del IMC
+// Mostrar el Resultado y el Mensaje del IMC
   resultado.style.display = 'block';
   imc.innerHTML = `Tu IMC es: ${indiceIMC}`;
 
@@ -34,5 +43,15 @@ formulario.addEventListener('submit', function(e) {
     mensaje.innerHTML = 'Tienes obesidad';
     sugerencias.innerHTML = 'Es importante que consultes a un especialista en nutrición y que aumentes tu actividad física para bajar de peso y disminuir el riesgo de enfermedades crónicas.';
   }
-});
 
+// Guardar resultado en el almacenamiento local
+  const resultadoIMC = {
+    peso: peso,
+    altura: altura,
+    indiceIMC: indiceIMC,
+    mensaje: mensaje.innerHTML,
+    sugerencias: sugerencias.innerHTML
+  };
+
+  localStorage.setItem('resultadoIMC', JSON.stringify(resultadoIMC));
+});
