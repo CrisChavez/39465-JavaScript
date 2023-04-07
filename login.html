@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+	<title>Login</title>
+</head>
+<body id="body">
+	<h1 id="h1">Login</h1>
+	<form id="form">
+		<label for="username">Username:</label>
+		<input type="text" id="username" name="username"><br><br>
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password"><br><br>
+		<input type="button" value="Login" onclick="login()">
+	</form>
+	<p id="error" style="color:red;display:none;">Incorrect username or password.</p>
+	<script src="script.js"></script>
+</body>
+</html>

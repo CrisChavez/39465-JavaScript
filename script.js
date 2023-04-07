@@ -14,19 +14,19 @@ if (resultadoPrevio) {
   resultado.style.display = 'block';
 }
 
-// Envío de Formulario
+  // Envío de Formulario
 formulario.addEventListener('submit', function(e) {
   e.preventDefault();
 
-// Peso y Altura (Resultados)
+  // Peso y Altura (Resultados)
   const peso = parseFloat(document.getElementById('peso').value);
   const altura = parseFloat(document.getElementById('altura').value) / 100;
 
-// Calcular IMC
+  // Calcular IMC
   const calculoIMC = peso / (altura * altura);
   const indiceIMC = calculoIMC.toFixed(2);
 
-// Mostrar el Resultado y el Mensaje del IMC
+  // Mostrar el Resultado y el Mensaje del IMC
   resultado.style.display = 'block';
   imc.innerHTML = `Tu IMC es: ${indiceIMC}`;
 
@@ -44,7 +44,7 @@ formulario.addEventListener('submit', function(e) {
     sugerencias.innerHTML = 'Es importante que consultes a un especialista en nutrición y que aumentes tu actividad física para bajar de peso y disminuir el riesgo de enfermedades crónicas.';
   }
 
-// Guardar resultado en el almacenamiento local
+  // Guardar resultado en el almacenamiento local
   const resultadoIMC = {
     peso: peso,
     altura: altura,
@@ -55,3 +55,33 @@ formulario.addEventListener('submit', function(e) {
 
   localStorage.setItem('resultadoIMC', JSON.stringify(resultadoIMC));
 });
+
+  // Evento sobre botón (reemplaza Hover del css)
+const boton = document.querySelector('#mi-boton');
+
+boton.addEventListener('mouseover', () => {
+  boton.style.backgroundColor = 'darkblue';
+});
+
+boton.addEventListener('mouseout', () => {
+  boton.style.backgroundColor = '';
+});
+
+
+//LOG IN
+
+function login() {
+  let username = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
+
+  // Here you would typically make an AJAX request to the server to verify the username and password.
+  // For this example, we'll just assume that the username is "testuser" and the password is "testpass".
+  if (username === "admin" && password === "admin123") {
+    // Set a session cookie or use a server-side session ID to keep the user authenticated.
+    // Then redirect the user to the index.html page.
+    window.location.href = "index.html";
+  } else {
+    // Display an error message if the username or password is incorrect.
+    document.getElementById("error").style.display = "block";
+  }
+}

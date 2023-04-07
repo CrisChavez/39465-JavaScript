@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f0f0;
@@ -45,9 +49,12 @@ button[type="submit"] {
   cursor: pointer;
 }
 
-button[type="submit"]:hover {
+
+/* Se agregó como evento en JS */
+
+/* button[type="submit"]:hover {
   background-color: #2e6da4;
-}
+} */
 
 .resultado {
   background-color: #1a1a1a;
@@ -92,3 +99,65 @@ button[type="submit"]:hover {
   line-height: 1.5;
 }
 
+
+/* 
+LOG IN */
+
+#body {
+  margin: 0;
+  padding: 0;
+  background-color: #e6f0ff;
+  font-family: Arial, sans-serif;
+}
+
+.login-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+#h1 {
+  text-align: center;
+  color: #0077b6;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+}
+
+#form label {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #023e8a;
+}
+
+#form input[type="text"],
+#form input[type="password"] {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+#form input[type="button"] {
+  padding: 10px;
+  background-color: #0077b6;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#form input[type="button"]:hover {
+  background-color: #023e8a;
+}
+
+#error {
+  margin-top: 20px;
+  text-align: center;
+}
