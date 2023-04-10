@@ -68,20 +68,20 @@ boton.addEventListener('mouseout', () => {
 });
 
 
-//LOG IN
+// LOG IN
 
 function login() {
   let username = document.getElementById("username").value;
   let password = document.getElementById("password").value;
 
-  // Here you would typically make an AJAX request to the server to verify the username and password.
-  // For this example, we'll just assume that the username is "testuser" and the password is "testpass".
-  if (username === "admin" && password === "admin123") {
-    // Set a session cookie or use a server-side session ID to keep the user authenticated.
-    // Then redirect the user to the index.html page.
-    window.location.href = "index.html";
+
+// Validación Ingreso con Usuario Genérico
+
+  if (username === "usuario" && password === "contraseña") {
+    window.location.href = "Calculadora.html";
   } else {
-    // Display an error message if the username or password is incorrect.
+
+    // Display de Mensaje de Error
     document.getElementById("error").style.display = "block";
   }
 }
