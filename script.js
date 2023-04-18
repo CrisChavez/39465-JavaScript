@@ -85,3 +85,33 @@ function login() {
     document.getElementById("error").style.display = "block";
   }
 }
+
+
+// API Clima
+
+const form = document.querySelector('.climaContainer');
+const weatherInfo = document.querySelector('#weather-info');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const city = document.querySelector('#city').value;
+  const province = document.querySelector('#province').value;
+  const API_KEY = "dcc557cbb6ff9ba6d5559602b2eef689";
+  try {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${province}&appid=${API_KEY}&units=metric`);
+    const data = await response.json();
+    const { main, weather } = data;
+    const { temp, humidity } = main;
+    const { description } = weather[0];
+    weatherInfo.innerHTML = `
+      <div class="weather-summary ${description.toLowerCase()}">
+        <h2>${city}, ${province}</h2>
+        <p>Temperatura: ${temp}°C</p>
+        <p>Humedad: ${humidity}%</p>
+        <p>Descripción: ${description}</p>
+      </div>
+    `;
+  } catch (error) {
+    console.log(error);
+  }
+});

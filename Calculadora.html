@@ -5,31 +5,50 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/style.css">
-  <title>Calculadora de IMC</title>
+  <title>Calculadora de IMC y API Clima</title>
 </head>
 <body>
-  <h1>Calculadora de IMC</h1>
 
-  <form id="formulario">
-    <label for="peso">Peso (kg)</label>
-    <input type="number" id="peso" required>
+  <div class="container">
+    <div class="columna-izquierda">
+      <h1 class="Clima">Clima (API)</h1>
 
-    <label for="altura">Altura (cm)</label>
-    <input type="number" id="altura" required>
+      <div class="climaContainer">
+        <form>
+          <label for="city">Ciudad:</label>
+          <input type="text" id="city" name="city" required>
+          <label for="province">Provincia:</label>
+          <input type="text" id="province" name="province" required>
+          <button id="submit-btn" type="submit">Consultar</button>
+        </form>   
+        <div id="weather-info"></div>
+      </div>
+    </div>
 
-    <button type="submit" id="mi-boton">Calcular IMC</button>
-  </form>
+    <div class="columna-derecha">
+      <h1>Calculadora de IMC</h1>
 
-  <div class="resultado" id="resultado">
-    <h2>Resultado</h2>
-    <p id="mensaje"></p>
-    <p id="imc"></p>
-  </div>
+      <form id="formulario">
+        <label for="peso">Peso (kg)</label>
+        <input type="number" id="peso" required>
 
+        <label for="altura">Altura (cm)</label>
+        <input type="number" id="altura" required>
 
-  <div class="sugerencias">
-    <h2>Sugerencias para Mejorar tu Calidad de Vida</h2>
-    <p id="sugerencias"></p>
+        <button type="submit" id="mi-boton">Calcular IMC</button>
+      </form>
+
+      <div class="resultado" id="resultado">
+        <h2>Resultado</h2>
+        <p id="mensaje"></p>
+        <p id="imc"></p>
+      </div>
+
+      <div class="sugerencias">
+        <h2>Sugerencias para Mejorar tu Calidad de Vida</h2>
+        <p id="sugerencias"></p>
+      </div>
+    </div>
   </div>
 
   <script src="./script.js"></script>
